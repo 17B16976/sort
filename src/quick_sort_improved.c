@@ -21,16 +21,19 @@ void quick_sort(int A[], int n){
             j++;
         }
         else if(A[i] == pivot) {
-            int z = A[j];
-            A[j] = A[i];
-            A[i] = z;
+            A[i] = A[j];
+            A[j] = A[b];
+            A[b] = pivot;
             j++;
             b++;
         }
     }
-    int a = A[j-b] ;
-    A[j-b] = A[0] ;
-    A[0] = a ;
+    for(i = b; i <= j - 1; i++){
+        A[i-b] = A[i];
+    }
+    for(i = j - b - 1; i <= j - 1; i++){
+        A[i] = pivot;
+    }
     quick_sort(A,j-b) ;
     quick_sort(A+j,n-j) ;
 }
