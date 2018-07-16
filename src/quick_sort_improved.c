@@ -31,7 +31,7 @@ void quick_sort(int A[], int n){
     for(i = b; i <= j - 1; i++){
         A[i-b] = A[i];
     }
-    for(i = j - b - 1; i <= j - 1; i++){
+    for(i = j - b; i <= j - 1; i++){
         A[i] = pivot;
     }
     quick_sort(A,j-b) ;
